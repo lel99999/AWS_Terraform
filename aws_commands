@@ -1,0 +1,34 @@
+(change the CIDR block to anything you like)
+> aws ec2 create-vpc --cidr-block 10.0.0.0/16
+{
+  "Vpc": {
+      "VpcId": "vpc-ff7bbf86",
+      "InstanceTenancy": "default",
+      "Tags": [],
+      "CidrBlockAssociations": [
+          {
+              "AssociationId": "vpc-cidr-assoc-6e42b505",
+              "CidrBlock": "10.0.0.0/16",
+              "CidrBlockState": {
+                  "State": "associated"
+              }
+          }
+      ],
+      "Ipv6CidrBlockAssociationSet": [],
+      "State": "pending",
+      "DhcpOptionsId": "dopt-38f7a057",
+      "CidrBlock": "10.0.0.0/16",
+      "IsDefault": false
+  }
+}
+
+
+// Create terraform project
+> mkdir terraform_b_g
+> cd terraform_b_g
+> git init
+> echo .terraform >> .gitignore
+> code .
+
+// Initialize terraform state
+> aws s3api create-bucket --bucket terraform-bluegreen
