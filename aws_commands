@@ -32,3 +32,7 @@
 
 // Initialize terraform state
 > aws s3api create-bucket --bucket terraform-bluegreen
+
+terraform init -from-module github.com/<path>/aws
+terraform apply
+terraform destroy --target=aws_instance.<name>[1]
